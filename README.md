@@ -1,6 +1,6 @@
 # multi-agent-fpa-workspace
 
-A Python pipeline that builds a next-year operating budget in Excel from 24 months of cost-center actuals, enforces four budget rules in code, and proves that a re-run does not overwrite an analyst's manual adjustments.
+A Python pipeline that builds a next-year operating budget in Excel from 24 months of cost-center actuals, enforces four budget rules in code, and proves that a re-run does not overwrite an analyst's manual adjustments. Three agents on the Claude Agent SDK run it, and each one can use only its own scripts and files.
 
 The data is synthetic. `src/prepare_data.py` generates it: 36 invented cost centers, 24 months, 4 planted one-off spikes. No real ledger figures appear anywhere. Amounts are in NIU (index units, so no real currency shows up).
 
@@ -38,11 +38,30 @@ Each rule is a short decision record (ADR) in `decisions/`.
 
 ## What "multi-agent" means here
 
-The `workspace/agents/*.md` files are role contracts for AI coding assistants such as Claude Code working in this repo. There are three roles: variance analyst (stages 1 and 2), budget architect (stages 3 and 4) and governance auditor (stage 5). Each file says which script that role runs, what it may read, and what it may write. The permissions are also in `config/workspace_governance.json`.
+Three agents run the pipeline on the Claude Agent SDK: a variance analyst (stages 1 and 2), a budget architect (stages 3 and 4) and a governance auditor (stage 5). `src/run_agents.py` starts them.
 
-The assistant loads context in layers: `workspace/GLOBAL_CONTEXT.md` (rules that always apply), then `workspace/WORKSPACE_CONTEXT.md` (this budget cycle, the divisions, which ADR applies where), then the role file. An assistant asked to run stage 4 cannot touch the raw actuals or the audit report, and it is told to cite script output instead of doing arithmetic itself.
+- Each agent is its own SDK session on Sonnet. Its system prompt is three context files, loaded in this order: `workspace/GLOBAL_CONTEXT.md` (rules that always apply), `workspace/WORKSPACE_CONTEXT.md` (this budget cycle and its divisions) and its role contract in `workspace/agents/`.
+- Its tools come from its entry in `config/workspace_governance.json`: one tool per script it may run, a `read_file` limited to its read and write scopes plus the shared context files, and a tool to hand off. Built-in tools such as the shell and file editing are switched off. The analyst cannot open the workbook, and the architect cannot run the audit.
+- A coordinator (`src/agents/coordinator.py`) runs the agents in order and passes each one the earlier hand-offs. The auditor approves or rejects. A rejection names the agent that must redo its stages, and work runs forward again from that agent. The coordinator allows two send-backs and stops the run at a third rejection.
 
-This is a governance pattern for AI-assisted FP&A. It limits what an assistant can change, and every number traces to a script or a cell formula.
+Three checks run in code, outside the model (`src/agents/toolbox.py`):
+
+| Check | What it does |
+| :--- | :--- |
+| Write scope | Hashes `data/` and `output/` before and after every script call. If a file outside the agent's write scopes changed, the tool result says so, and the coordinator stops the run when that agent finishes. |
+| Citations | Refuses a hand-off or verdict that states a figure no tool returned, so agents have to copy numbers from script output. |
+| Approval | Refuses an approval unless `verify_governance.py` passed in the auditor's own session. |
+
+The arithmetic stays in the Python scripts and the Excel formulas. The agents choose what to read and check, and they write the hand-offs.
+
+### Recorded runs
+
+`demo/` holds two real runs, so you can see the agents work without an API key.
+
+- [`demo/clean_run/`](demo/clean_run/transcript.md): approved on the first pass. 3 agent runs, about $0.12 at Sonnet API prices.
+- [`demo/rejected_run/`](demo/rejected_run/transcript.md): after the architect handed off, the coordinator changed one locked row on purpose (CC-208's final budget, from 362.10 to 367.10 NIU), standing in for an unsigned hand edit. The audit failed ADR-0004. The auditor compared the workbook with the proof file, named CC-208 as the row that no longer matched, and sent the work back to the architect. The architect re-ran stages 3 and 4, which rewrote the row from the signed overrides, and the second audit passed. The citation check also refused the auditor's first verdict, which stated a 5.0 NIU difference it had worked out itself; it resubmitted without the number. 5 agent runs, about $0.35.
+
+Each folder has `transcript.md` to read, `transcript.jsonl` with every event, `summary.json`, and the run's `outputs/`. The tests replay both recordings: each recorded tool call is sent again to the current code and must return the same output, and the hand-offs must lead the coordinator to the same outcome. If a script's output changes, that test fails until the runs are recorded again.
 
 ## Method
 
@@ -81,16 +100,26 @@ Of the 222.04 NIU reduction, 141.40 NIU comes from the 10 discretionary cuts (4 
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt pytest
-python src/run_all.py   # rebuilds data/ and output/ from scratch
-pytest -q               # 7 tests
+python src/run_all.py   # the pipeline without agents; rebuilds data/ and output/ from scratch
+pytest -q               # 20 tests, including the replays; no API key needed
+
+# The agents need a Claude Code login or ANTHROPIC_API_KEY
+pip install -r requirements-agents.txt
+python src/run_agents.py --record demo/clean_run
+python src/run_agents.py --tamper --record demo/rejected_run
+python src/run_agents.py --replay demo/rejected_run   # no key: re-issues the recorded tool calls
 ```
 
-`data/` and `output/` are rebuilt on every run and are gitignored. CI runs ruff, the pipeline and pytest on Python 3.11 to 3.13.
+`data/` and `output/` are rebuilt on every run and are gitignored. CI runs ruff, the pipeline and pytest on Python 3.11 to 3.13. It does not install the SDK or call a model.
 
 ## Scope and limits
 
 - The data is synthetic. The findings show the rules working on a planted test case, and say nothing about any real company's budget.
-- No model is called by the pipeline. The "agents" are instructions for AI coding assistants, and the pipeline is ordinary Python and Excel formulas.
+- `src/run_all.py` calls no model. The agents call the same scripts through tools, so every figure still comes from a script or a cell formula.
+- The coordinator runs a fixed order. The agents cannot reorder the stages, skip one or add one.
+- The coordinator put the fault in the rejected run on purpose, to show the send-back path.
+- The citation check compares decimal figures by value with everything the agent has seen: its task, the files it read and its tool output. It refuses a decimal that appears in none of them. It does not check whole numbers, it misses a worked-out figure that happens to appear somewhere in that material, and it cannot tell whether a copied number is used in the right sentence.
+- Two recorded runs are not an evaluation. The agents' wording changes from run to run, so the tests check only the tool outputs and the guards.
 - `src/verify_governance.py` uses the same domain module and policy file as the build stages. It is a regression check on the rules, not an independent audit.
 - The re-run tests one scenario, a +1.50 point change to the growth driver. The thresholds and cut percentages are policy settings in `config/workspace_governance.json`.
 - The output is an Excel workbook and JSON files. There is no interface.

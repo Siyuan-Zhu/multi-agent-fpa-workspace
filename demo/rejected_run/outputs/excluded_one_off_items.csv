@@ -1,0 +1,5 @@
+Line_ID,Division_ID,Division_Name,Fund_Type,Cost_Center,Line_Item_Name,Expense_Category,Seasonality_Profile,Month,Window,Gross_Actual_NIU,One_Off_NIU,Recurring_Actual_NIU,Is_One_Off_Spike,One_Off_Reason
+LI-04,DIV-A,Division A — Core Platform,OPERATING,CC-104,Developer Sandbox Cloud Burst,Discretionary Opex,Q4_HEAVY,2025-03,P12M,110.2,95.0,15.2,1,Legacy cluster retirement charge (ADR-0001 exclusion)
+LI-08,DIV-A,Division A — Core Platform,OPERATING,CC-108,Technical Documentation Contractors,Discretionary Opex,FLAT,2026-01,TTM,129.83,120.0,9.83,1,Data center rack consolidation fee (ADR-0001 exclusion)
+LI-15,DIV-B,Division B — Field Operations,OPERATING,CC-205,Channel Partner Enablement Kits,Discretionary Opex,Q2_Q4,2026-04,TTM,122.07,110.0,12.07,1,Regional depot lease exit settlement (ADR-0001 exclusion)
+LI-26,DIV-C,Division C — Shared Services,OPERATING,CC-306,Management Consulting Benchmarks,Discretionary Opex,Q2_Q4,2026-07,TTM,104.5,85.0,19.5,1,ERP chart-of-accounts migration spike (ADR-0001 exclusion)

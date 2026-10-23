@@ -4,11 +4,15 @@
 - **Inherits**: `workspace/GLOBAL_CONTEXT.md`, `workspace/WORKSPACE_CONTEXT.md`
 - **Disclosed Reference**: Read `decisions/0001-ttm-seasonal-baseline-and-one-off-exclusion.md` through `decisions/0004-non-destructive-human-override-preservation.md` before Step 1.
 
-## Ordered Execution Step
+## Ordered Execution Steps
 
 1. **Certify ADR compliance, live formulas, and SHA-256 lock preservation (Stage 5)**
    - **Action**: Execute `python3 src/verify_governance.py` in read-only workbook mode (`openpyxl.load_workbook(..., data_only=False)`) to audit `ADR-0001` through `ADR-0004` against `config/workspace_governance.json`, `data/processed/*.csv`, `data/processed/rerun_preservation_proof.json`, and `output/FY2027_Rolling_Budget_Model.xlsx`.
    - **Completion Criterion**: `data/processed/governance_audit_report.json` is written with `overall_governance_compliant == True`, `adr_compliance_rate_pct == 100.0`, `live_excel_formulas_verified == True`, zero violations across `ADR-0001..0004`, `7/7` `LOCKED` rows independently re-verified via SHA-256 cell hashes, and `29/29` `UNLOCKED` rows confirmed recalculated.
+
+2. **Approve or send back**
+   - **Approve** only when Step 1 meets its completion criterion.
+   - **Reject** otherwise. Name the failing ADR and send the work back to the agent that executes it: `ADR-0001` → `variance_analyst`; `ADR-0002`, `ADR-0003`, `ADR-0004` and formula failures → `budget_architect`. Before rejecting an `ADR-0004` failure, compare each `LOCKED` row's `Final_Budget_NIU` in the workbook with its `pass_2_final_niu` in `data/processed/rerun_preservation_proof.json`, and name the cost center that differs.
 
 ## Access Scope (`config/workspace_governance.json`)
 

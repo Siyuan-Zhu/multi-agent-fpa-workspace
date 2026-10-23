@@ -1,0 +1,37 @@
+Line_ID,Division_ID,Division_Name,Fund_Type,Cost_Center,Line_Item_Name,Expense_Category,Seasonality_Profile,P12M_Gross_NIU,P12M_One_Off_NIU,P12M_Recurring_NIU,TTM_Gross_NIU,TTM_Excluded_One_Off_NIU,TTM_Recurring_NIU,Gross_YoY_Growth_Pct,YoY_Growth_Pct,YoY_Growth_Bps,Monthly_CV,Q4_Share_Pct,Seasonality_Index
+LI-01,DIV-A,Division A — Core Platform,OPERATING,CC-101,Platform Core Compute Clusters,Contractual Infrastructure,FLAT,504.0,0.0,504.0,531.71,0.0,531.71,5.5,5.5,550,0.0091,25.17,1.007
+LI-02,DIV-A,Division A — Core Platform,OPERATING,CC-102,Observability & Telemetry SaaS,Contractual Infrastructure,FLAT,221.99,0.0,221.99,235.33,0.0,235.33,6.01,6.01,601,0.0092,25.17,1.007
+LI-03,DIV-A,Division A — Core Platform,OPERATING,CC-103,Product Engineering Compensation,Personnel & Compensation,FLAT,1140.0,0.0,1140.0,1191.28,0.0,1191.28,4.5,4.5,450,0.0091,25.17,1.007
+LI-04,DIV-A,Division A — Core Platform,OPERATING,CC-104,Developer Sandbox Cloud Burst,Discretionary Opex,Q4_HEAVY,287.0,95.0,192.0,214.08,0.0,214.08,-25.41,11.5,1150,0.0928,28.83,1.153
+LI-05,DIV-A,Division A — Core Platform,OPERATING,CC-105,SOC2 & ISO Security Audits,Regulatory Compliance,Q2_Q4,132.0,0.0,132.0,136.64,0.0,136.64,3.52,3.52,352,0.0935,27.09,1.084
+LI-06,DIV-A,Division A — Core Platform,OPERATING,CC-106,External UI/UX Prototyping Studio,Discretionary Opex,Q4_HEAVY,168.0,0.0,168.0,183.95,0.0,183.95,9.49,9.49,949,0.0928,28.83,1.153
+LI-07,DIV-A,Division A — Core Platform,OPERATING,CC-107,API Gateway Bandwidth Commit,Contractual Infrastructure,FLAT,288.0,0.0,288.0,302.4,0.0,302.4,5.0,5.0,500,0.0091,25.17,1.007
+LI-08,DIV-A,Division A — Core Platform,OPERATING,CC-108,Technical Documentation Contractors,Discretionary Opex,FLAT,114.01,0.0,114.01,239.16,120.0,119.16,109.77,4.52,452,0.0092,25.17,1.007
+LI-09,DIV-A,Division A — Core Platform,OPERATING,CC-109,Quality Assurance Automation Lab,Discretionary Opex,FLAT,144.0,0.0,144.0,146.88,0.0,146.88,2.0,2.0,200,0.0089,25.16,1.006
+LI-10,DIV-A,Division A — Core Platform,OPERATING,CC-110,Site Reliability Engineering Payroll,Personnel & Compensation,FLAT,816.0,0.0,816.0,848.65,0.0,848.65,4.0,4.0,400,0.0091,25.17,1.007
+LI-11,DIV-B,Division B — Field Operations,OPERATING,CC-201,Regional Commercial Account Payroll,Personnel & Compensation,FLAT,1056.0,0.0,1056.0,1108.79,0.0,1108.79,5.0,5.0,500,0.0091,25.17,1.007
+LI-12,DIV-B,Division B — Field Operations,OPERATING,CC-202,Trade Show Pavilions,Discretionary Opex,Q4_HEAVY,264.0,0.0,264.0,296.99,0.0,296.99,12.5,12.5,1250,0.0928,28.83,1.153
+LI-13,DIV-B,Division B — Field Operations,OPERATING,CC-203,Field Fleet Telematics Leases,Contractual Infrastructure,FLAT,228.0,0.0,228.0,234.85,0.0,234.85,3.0,3.0,300,0.0092,25.17,1.007
+LI-14,DIV-B,Division B — Field Operations,OPERATING,CC-204,Regional Prospecting Roadshows,Discretionary Opex,Q4_HEAVY,185.99,0.0,185.99,202.74,0.0,202.74,9.01,9.01,901,0.0929,28.83,1.153
+LI-15,DIV-B,Division B — Field Operations,OPERATING,CC-205,Channel Partner Enablement Kits,Discretionary Opex,Q2_Q4,156.0,0.0,156.0,274.57,110.0,164.57,76.01,5.49,549,0.0936,27.08,1.083
+LI-16,DIV-B,Division B — Field Operations,OPERATING,CC-206,Export Licensing & Trade Compliance,Regulatory Compliance,FLAT,102.01,0.0,102.01,104.55,0.0,104.55,2.49,2.49,249,0.009,25.16,1.006
+LI-17,DIV-B,Division B — Field Operations,OPERATING,CC-207,CRM Seat Subscription Tiers,Contractual Infrastructure,FLAT,252.0,0.0,252.0,263.36,0.0,263.36,4.51,4.51,451,0.009,25.16,1.006
+LI-18,DIV-B,Division B — Field Operations,OPERATING,CC-208,Digital Demand Generation Campaigns,Discretionary Opex,Q4_HEAVY,329.99,0.0,329.99,364.65,0.0,364.65,10.5,10.5,1050,0.0928,28.83,1.153
+LI-19,DIV-B,Division B — Field Operations,OPERATING,CC-209,Field Solutions Engineering Payroll,Personnel & Compensation,FLAT,648.0,0.0,648.0,675.23,0.0,675.23,4.2,4.2,420,0.0091,25.17,1.007
+LI-20,DIV-B,Division B — Field Operations,OPERATING,CC-210,Hospitality & Client Executive Briefings,Discretionary Opex,Q4_HEAVY,138.0,0.0,138.0,140.48,0.0,140.48,1.8,1.8,180,0.0929,28.84,1.154
+LI-21,DIV-C,Division C — Shared Services,OPERATING,CC-301,Corporate Finance & Legal Payroll,Personnel & Compensation,FLAT,744.0,0.0,744.0,772.29,0.0,772.29,3.8,3.8,380,0.0091,25.17,1.007
+LI-22,DIV-C,Division C — Shared Services,OPERATING,CC-302,ERP Core Licensing,Contractual Infrastructure,FLAT,312.0,0.0,312.0,324.48,0.0,324.48,4.0,4.0,400,0.0091,25.17,1.007
+LI-23,DIV-C,Division C — Shared Services,OPERATING,CC-303,Statutory Tax & External Audit Fees,Regulatory Compliance,Q2_Q4,174.0,0.0,174.0,184.43,0.0,184.43,5.99,5.99,599,0.0935,27.08,1.083
+LI-24,DIV-C,Division C — Shared Services,OPERATING,CC-304,Executive Leadership Offsites,Discretionary Opex,Q4_HEAVY,126.0,0.0,126.0,138.35,0.0,138.35,9.8,9.8,980,0.0926,28.83,1.153
+LI-25,DIV-C,Division C — Shared Services,OPERATING,CC-305,Global Data Privacy Counsel Retainer,Regulatory Compliance,FLAT,108.0,0.0,108.0,111.23,0.0,111.23,2.99,2.99,299,0.0091,25.16,1.006
+LI-26,DIV-C,Division C — Shared Services,OPERATING,CC-306,Management Consulting Benchmarks,Discretionary Opex,Q2_Q4,204.0,0.0,204.0,301.66,85.0,216.66,47.87,6.21,621,0.0935,27.08,1.083
+LI-27,DIV-C,Division C — Shared Services,OPERATING,CC-307,Workplace Facilities & Security Systems,Contractual Infrastructure,FLAT,276.0,0.0,276.0,283.71,0.0,283.71,2.79,2.79,279,0.0091,25.17,1.007
+LI-28,DIV-C,Division C — Shared Services,OPERATING,CC-308,Internal Learning & Stipend Programs,Discretionary Opex,FLAT,96.0,0.0,96.0,97.44,0.0,97.44,1.5,1.5,150,0.009,25.16,1.006
+LI-29,DIV-C,Division C — Shared Services,OPERATING,CC-309,Recruiting Agency Placement Retainers,Discretionary Opex,Q2_Q4,180.0,0.0,180.0,195.85,0.0,195.85,8.81,8.81,881,0.0936,27.09,1.084
+LI-30,DIV-C,Division C — Shared Services,OPERATING,CC-310,Environmental & Safety Filings,Regulatory Compliance,FLAT,90.01,0.0,90.01,92.0,0.0,92.0,2.21,2.21,221,0.0091,25.16,1.006
+LI-31,DIV-R,Designated R&D Reserve,DESIGNATED_RESERVE,CC-901,Next-Gen Autonomous Agent Testbed,Designated R&D Reserve,FLAT,408.0,0.0,408.0,436.55,0.0,436.55,7.0,7.0,700,0.0091,25.17,1.007
+LI-32,DIV-R,Designated R&D Reserve,DESIGNATED_RESERVE,CC-902,Proprietary Training Compute Reserve,Designated R&D Reserve,Q4_HEAVY,552.0,0.0,552.0,596.18,0.0,596.18,8.0,8.0,800,0.0928,28.83,1.153
+LI-33,DIV-R,Designated R&D Reserve,DESIGNATED_RESERVE,CC-903,Applied AI Research Fellows Payroll,Personnel & Compensation,FLAT,696.0,0.0,696.0,730.8,0.0,730.8,5.0,5.0,500,0.0091,25.17,1.007
+LI-34,DIV-R,Designated R&D Reserve,DESIGNATED_RESERVE,CC-904,Synthetic Benchmark Dataset Licensing,Designated R&D Reserve,Q2_Q4,234.0,0.0,234.0,249.22,0.0,249.22,6.5,6.5,650,0.0935,27.08,1.083
+LI-35,DIV-R,Designated R&D Reserve,DESIGNATED_RESERVE,CC-905,Experimental Silicon Accelerator Lease,Contractual Infrastructure,FLAT,348.0,0.0,348.0,363.64,0.0,363.64,4.49,4.49,449,0.0092,25.17,1.007
+LI-36,DIV-R,Designated R&D Reserve,DESIGNATED_RESERVE,CC-906,University Research Grant Consortium,Designated R&D Reserve,FLAT,197.99,0.0,197.99,205.92,0.0,205.92,4.01,4.01,401,0.009,25.17,1.007

@@ -1,0 +1,384 @@
+{
+  "adr_id": "ADR-0004",
+  "macro_driver_rerun_shock_bps": 150,
+  "total_line_items": 36,
+  "locked_rows_count": 7,
+  "unlocked_rows_count": 29,
+  "all_locked_rows_preserved_verbatim": true,
+  "all_unlocked_rows_recalculated": true,
+  "pass_1_portfolio_final_budget_niu": 12741.22,
+  "pass_2_portfolio_rough_budget_niu": 13099.26,
+  "pass_2_portfolio_final_budget_niu": 12877.22,
+  "net_compression_savings_vs_rough_niu": -222.04,
+  "locked_row_proofs": [
+    {
+      "cost_center": "CC-103",
+      "line_id": "LI-03",
+      "pass_1_final_niu": 1246.8,
+      "pass_2_final_niu": 1246.8,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "cbd7f3fb3302629a9fbe345f62e01892e785758bd9e9935a1ba44a130dfa601d",
+      "pass_2_sha256": "cbd7f3fb3302629a9fbe345f62e01892e785758bd9e9935a1ba44a130dfa601d",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked per VP Engineering sign-off: retains 2 principal systems architects for Q2 platform migration."
+    },
+    {
+      "cost_center": "CC-107",
+      "line_id": "LI-07",
+      "pass_1_final_niu": 298.5,
+      "pass_2_final_niu": 298.5,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "01d5224f4894395cb354a300fa02a8b375272334c3ff26605287199ff9af77cc",
+      "pass_2_sha256": "01d5224f4894395cb354a300fa02a8b375272334c3ff26605287199ff9af77cc",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked per negotiated multi-year bandwidth addendum signed 2026-09-14."
+    },
+    {
+      "cost_center": "CC-202",
+      "line_id": "LI-12",
+      "pass_1_final_niu": 286.4,
+      "pass_2_final_niu": 286.4,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "4c4df49a53c88b3d27111ce622bb58b0eb618260a371605293a50c4051569f9a",
+      "pass_2_sha256": "4c4df49a53c88b3d27111ce622bb58b0eb618260a371605293a50c4051569f9a",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked by Field Ops Controller: flagship Q3 commercial summit booth deposit already contracted."
+    },
+    {
+      "cost_center": "CC-208",
+      "line_id": "LI-18",
+      "pass_1_final_niu": 362.1,
+      "pass_2_final_niu": 362.1,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "1225f7b9127d4e82e167ccc672a241ec7ebeed0c7047fe4951bff8b8a030c27a",
+      "pass_2_sha256": "1225f7b9127d4e82e167ccc672a241ec7ebeed0c7047fe4951bff8b8a030c27a",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked per CMO pipeline target: preserves high-intent search campaigns in H1."
+    },
+    {
+      "cost_center": "CC-303",
+      "line_id": "LI-23",
+      "pass_1_final_niu": 195.2,
+      "pass_2_final_niu": 195.2,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "63c533b403cf518a27cdb6cdc5bb1257dbde04604706b72a346b2f5289092c6c",
+      "pass_2_sha256": "63c533b403cf518a27cdb6cdc5bb1257dbde04604706b72a346b2f5289092c6c",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked per Audit Committee engagement letter covering multi-jurisdiction statutory filings."
+    },
+    {
+      "cost_center": "CC-309",
+      "line_id": "LI-29",
+      "pass_1_final_niu": 182.7,
+      "pass_2_final_niu": 182.7,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "fda9385bac2d0860e8b9896aa01cadf65f4b649e2b2778a067213a6b8370ef88",
+      "pass_2_sha256": "fda9385bac2d0860e8b9896aa01cadf65f4b649e2b2778a067213a6b8370ef88",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked per CHRO review: retains specialized executive search retainer while insourcing tier-2 roles."
+    },
+    {
+      "cost_center": "CC-903",
+      "line_id": "LI-33",
+      "pass_1_final_niu": 756.0,
+      "pass_2_final_niu": 756.0,
+      "niu_delta": 0.0,
+      "pass_1_sha256": "9acbdec31d017bb4dfead9798f61d0724746eac31bfb77cbf7e4d7726078c8d1",
+      "pass_2_sha256": "9acbdec31d017bb4dfead9798f61d0724746eac31bfb77cbf7e4d7726078c8d1",
+      "cryptographic_match": true,
+      "analyst_commentary": "Locked per R&D Board Charter: ring-fenced cohort of 6 Applied AI Research Fellows (ADR-0002/0004)."
+    }
+  ],
+  "unlocked_row_proofs": [
+    {
+      "cost_center": "CC-101",
+      "line_id": "LI-01",
+      "pass_1_final_niu": 553.62,
+      "pass_2_final_niu": 561.59,
+      "niu_delta": 7.97,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-102",
+      "line_id": "LI-02",
+      "pass_1_final_niu": 245.94,
+      "pass_2_final_niu": 249.47,
+      "niu_delta": 3.53,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-104",
+      "line_id": "LI-04",
+      "pass_1_final_niu": 201.39,
+      "pass_2_final_niu": 204.21,
+      "niu_delta": 2.82,
+      "recommended_adjustment_pct": -12.0,
+      "review_disposition": "TIER_1_MAX_CAP_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-105",
+      "line_id": "LI-05",
+      "pass_1_final_niu": 140.0,
+      "pass_2_final_niu": 142.05,
+      "niu_delta": 2.05,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-106",
+      "line_id": "LI-06",
+      "pass_1_final_niu": 171.09,
+      "pass_2_final_niu": 173.52,
+      "niu_delta": 2.43,
+      "recommended_adjustment_pct": -12.0,
+      "review_disposition": "TIER_1_MAX_CAP_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-108",
+      "line_id": "LI-08",
+      "pass_1_final_niu": 114.43,
+      "pass_2_final_niu": 116.11,
+      "niu_delta": 1.68,
+      "recommended_adjustment_pct": -6.5,
+      "review_disposition": "TIER_2_MODERATE_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-109",
+      "line_id": "LI-09",
+      "pass_1_final_niu": 145.33,
+      "pass_2_final_niu": 147.46,
+      "niu_delta": 2.13,
+      "recommended_adjustment_pct": -3.0,
+      "review_disposition": "TIER_3_BASELINE_TRIM",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-110",
+      "line_id": "LI-10",
+      "pass_1_final_niu": 878.35,
+      "pass_2_final_niu": 891.08,
+      "niu_delta": 12.73,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "ROUTED_TO_HEADCOUNT_SCENARIO",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-201",
+      "line_id": "LI-11",
+      "pass_1_final_niu": 1147.6,
+      "pass_2_final_niu": 1164.23,
+      "niu_delta": 16.63,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "ROUTED_TO_HEADCOUNT_SCENARIO",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-203",
+      "line_id": "LI-13",
+      "pass_1_final_niu": 240.72,
+      "pass_2_final_niu": 244.24,
+      "niu_delta": 3.52,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-204",
+      "line_id": "LI-14",
+      "pass_1_final_niu": 188.06,
+      "pass_2_final_niu": 190.74,
+      "niu_delta": 2.68,
+      "recommended_adjustment_pct": -12.0,
+      "review_disposition": "TIER_1_MAX_CAP_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-205",
+      "line_id": "LI-15",
+      "pass_1_final_niu": 158.93,
+      "pass_2_final_niu": 161.24,
+      "niu_delta": 2.31,
+      "recommended_adjustment_pct": -6.5,
+      "review_disposition": "TIER_2_MODERATE_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-206",
+      "line_id": "LI-16",
+      "pass_1_final_niu": 106.64,
+      "pass_2_final_niu": 108.21,
+      "niu_delta": 1.57,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-207",
+      "line_id": "LI-17",
+      "pass_1_final_niu": 272.26,
+      "pass_2_final_niu": 276.21,
+      "niu_delta": 3.95,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-209",
+      "line_id": "LI-19",
+      "pass_1_final_niu": 698.86,
+      "pass_2_final_niu": 708.99,
+      "niu_delta": 10.13,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "ROUTED_TO_HEADCOUNT_SCENARIO",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-210",
+      "line_id": "LI-20",
+      "pass_1_final_niu": 138.99,
+      "pass_2_final_niu": 141.04,
+      "niu_delta": 2.05,
+      "recommended_adjustment_pct": -3.0,
+      "review_disposition": "TIER_3_BASELINE_TRIM",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-301",
+      "line_id": "LI-21",
+      "pass_1_final_niu": 799.32,
+      "pass_2_final_niu": 810.9,
+      "niu_delta": 11.58,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "ROUTED_TO_HEADCOUNT_SCENARIO",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-302",
+      "line_id": "LI-22",
+      "pass_1_final_niu": 334.21,
+      "pass_2_final_niu": 339.08,
+      "niu_delta": 4.87,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-304",
+      "line_id": "LI-24",
+      "pass_1_final_niu": 128.9,
+      "pass_2_final_niu": 130.73,
+      "niu_delta": 1.83,
+      "recommended_adjustment_pct": -12.0,
+      "review_disposition": "TIER_1_MAX_CAP_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-305",
+      "line_id": "LI-25",
+      "pass_1_final_niu": 113.55,
+      "pass_2_final_niu": 115.22,
+      "niu_delta": 1.67,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-306",
+      "line_id": "LI-26",
+      "pass_1_final_niu": 210.13,
+      "pass_2_final_niu": 213.17,
+      "niu_delta": 3.04,
+      "recommended_adjustment_pct": -6.5,
+      "review_disposition": "TIER_2_MODERATE_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-307",
+      "line_id": "LI-27",
+      "pass_1_final_niu": 290.8,
+      "pass_2_final_niu": 295.06,
+      "niu_delta": 4.26,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-308",
+      "line_id": "LI-28",
+      "pass_1_final_niu": 96.41,
+      "pass_2_final_niu": 97.82,
+      "niu_delta": 1.41,
+      "recommended_adjustment_pct": -3.0,
+      "review_disposition": "TIER_3_BASELINE_TRIM",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-310",
+      "line_id": "LI-30",
+      "pass_1_final_niu": 93.84,
+      "pass_2_final_niu": 95.22,
+      "niu_delta": 1.38,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "PROTECTED_NO_CUT",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-901",
+      "line_id": "LI-31",
+      "pass_1_final_niu": 461.0,
+      "pass_2_final_niu": 467.55,
+      "niu_delta": 6.55,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "RING_FENCED_NO_SWEEP",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-902",
+      "line_id": "LI-32",
+      "pass_1_final_niu": 631.95,
+      "pass_2_final_niu": 640.89,
+      "niu_delta": 8.94,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "RING_FENCED_NO_SWEEP",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-904",
+      "line_id": "LI-34",
+      "pass_1_final_niu": 262.18,
+      "pass_2_final_niu": 265.92,
+      "niu_delta": 3.74,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "RING_FENCED_NO_SWEEP",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-905",
+      "line_id": "LI-35",
+      "pass_1_final_niu": 375.89,
+      "pass_2_final_niu": 381.35,
+      "niu_delta": 5.46,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "RING_FENCED_NO_SWEEP",
+      "dynamically_recalculated": true
+    },
+    {
+      "cost_center": "CC-906",
+      "line_id": "LI-36",
+      "pass_1_final_niu": 213.13,
+      "pass_2_final_niu": 216.22,
+      "niu_delta": 3.09,
+      "recommended_adjustment_pct": 0.0,
+      "review_disposition": "RING_FENCED_NO_SWEEP",
+      "dynamically_recalculated": true
+    }
+  ]
+}
