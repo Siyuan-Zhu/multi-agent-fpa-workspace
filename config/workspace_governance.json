@@ -1,0 +1,110 @@
+{
+  "workspace_id": "ENT-FPA-FY2027-ROLLING",
+  "organization": "Commercial Operations",
+  "reporting_unit": "NIU",
+  "reporting_unit_description": "Normalized Index Units (1.00 NIU = baseline index unit)",
+  "fiscal_year": "FY2027",
+  "historical_window": {
+    "prior_12m_start": "2024-10",
+    "prior_12m_end": "2025-09",
+    "ttm_start": "2025-10",
+    "ttm_end": "2026-09",
+    "total_months": 24
+  },
+  "context_hierarchy": {
+    "tier_1_global": "workspace/GLOBAL_CONTEXT.md",
+    "tier_2_workspace": "workspace/WORKSPACE_CONTEXT.md",
+    "tier_3_agents": {
+      "variance_analyst": {
+        "contract_path": "workspace/agents/variance_analyst_agent.md",
+        "allowed_scripts": ["src/prepare_data.py", "src/build_trends.py"],
+        "read_scopes": ["data/raw/*", "decisions/0001-ttm-seasonal-baseline-and-one-off-exclusion.md"],
+        "write_scopes": ["data/processed/clean_recurring_actuals_24m.csv", "data/processed/excluded_one_off_items.csv", "data/processed/ttm_trend_metrics.csv"],
+        "prohibited_scopes": ["output/FY2027_Rolling_Budget_Model.xlsx"]
+      },
+      "budget_architect": {
+        "contract_path": "workspace/agents/budget_architect_agent.md",
+        "allowed_scripts": ["src/build_rough_budget.py", "src/cut_review_rules.py"],
+        "read_scopes": ["data/processed/ttm_trend_metrics.csv", "data/raw/human_analyst_overrides.csv", "decisions/0002-ring-fenced-designated-reserve-transfers.md", "decisions/0003-tiered-opex-compression-and-protected-lines.md", "decisions/0004-non-destructive-human-override-preservation.md"],
+        "write_scopes": ["output/FY2027_Rolling_Budget_Model.xlsx", "data/processed/rerun_preservation_proof.json"],
+        "prohibited_scopes": ["data/raw/historical_actuals_24m.csv"]
+      },
+      "governance_auditor": {
+        "contract_path": "workspace/agents/governance_auditor_agent.md",
+        "allowed_scripts": ["src/verify_governance.py"],
+        "read_scopes": ["workspace/*", "decisions/*", "data/raw/*", "data/processed/*", "output/FY2027_Rolling_Budget_Model.xlsx"],
+        "write_scopes": ["data/processed/governance_audit_report.json"],
+        "prohibited_scopes": ["data/raw/*", "output/FY2027_Rolling_Budget_Model.xlsx"]
+      }
+    }
+  },
+  "divisions": [
+    {
+      "division_id": "DIV-A",
+      "division_name": "Division A — Core Platform",
+      "fund_type": "OPERATING",
+      "ring_fenced": false,
+      "cost_center_prefix": "CC-100"
+    },
+    {
+      "division_id": "DIV-B",
+      "division_name": "Division B — Field Operations",
+      "fund_type": "OPERATING",
+      "ring_fenced": false,
+      "cost_center_prefix": "CC-200"
+    },
+    {
+      "division_id": "DIV-C",
+      "division_name": "Division C — Shared Services",
+      "fund_type": "OPERATING",
+      "ring_fenced": false,
+      "cost_center_prefix": "CC-300"
+    },
+    {
+      "division_id": "DIV-R",
+      "division_name": "Designated R&D Reserve",
+      "fund_type": "DESIGNATED_RESERVE",
+      "ring_fenced": true,
+      "cost_center_prefix": "CC-900"
+    }
+  ],
+  "adr_policies": {
+    "ADR-0001": {
+      "title": "TTM Seasonal Baseline and One-Off Exclusion",
+      "file": "decisions/0001-ttm-seasonal-baseline-and-one-off-exclusion.md",
+      "exclude_one_off_spikes_from_ttm_base": true,
+      "expected_one_off_event_count": 4
+    },
+    "ADR-0002": {
+      "title": "Ring-Fenced Designated Reserve Transfers",
+      "file": "decisions/0002-ring-fenced-designated-reserve-transfers.md",
+      "prohibit_reserve_to_operating_sweeps": true,
+      "ring_fenced_division_id": "DIV-R"
+    },
+    "ADR-0003": {
+      "title": "Tiered Opex Compression and Protected Lines",
+      "file": "decisions/0003-tiered-opex-compression-and-protected-lines.md",
+      "discretionary_max_cut_pct": -12.0,
+      "discretionary_high_growth_trigger_pct": 8.0,
+      "discretionary_high_growth_cut_pct": -12.0,
+      "discretionary_moderate_growth_trigger_pct": 3.0,
+      "discretionary_moderate_growth_cut_pct": -6.5,
+      "discretionary_low_growth_cut_pct": -3.0,
+      "protected_categories": ["Contractual Infrastructure", "Regulatory Compliance"],
+      "headcount_review_categories": ["Personnel & Compensation"]
+    },
+    "ADR-0004": {
+      "title": "Non-Destructive Human Override Preservation",
+      "file": "decisions/0004-non-destructive-human-override-preservation.md",
+      "lock_flag_column": "Analyst_Override_Flag",
+      "locked_value": "LOCKED",
+      "unlocked_value": "UNLOCKED",
+      "preserve_columns_on_rerun": [
+        "Final_Budget_NIU",
+        "Recommended_Adjustment_Pct",
+        "Analyst_Commentary",
+        "Review_Disposition"
+      ]
+    }
+  }
+}
