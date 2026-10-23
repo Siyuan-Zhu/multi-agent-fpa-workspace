@@ -161,7 +161,3 @@ CI (`.github/workflows/ci.yml`) runs `ruff check .`, `python src/run_all.py` and
 ## Working in this repo
 
 Before changing code, read [AGENTS.md](AGENTS.md): the checks to run before a commit, which files are generated or recorded, and what to ask about first.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
