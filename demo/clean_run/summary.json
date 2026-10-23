@@ -1,0 +1,46 @@
+{
+  "outcome": "approved",
+  "tamper": false,
+  "rejections": 0,
+  "runs": [
+    {
+      "run": 1,
+      "role": "variance_analyst",
+      "result": {
+        "status": "complete",
+        "summary": "Read ADR-0001, then ran Stage 1 (prepare_data) and Stage 2 (build_trends). Both completion criteria are met, with no write-scope violations.\n\nStage 1: 864 monthly records, 36 line items, 4 divisions, 7 human overrides. Reconciliation residual is 0.0 NIU. There are 4 one-off events totaling 410.00 NIU (95.00 NIU in P12M, 315.00 NIU in TTM). Written: clean_recurring_actuals_24m.csv and excluded_one_off_items.csv.\n\nStage 2: 36 cost-center rows written to ttm_trend_metrics.csv.\n- P12M_Recurring: 11,825.99 NIU\n- TTM_Gross: 12,780.04 NIU\n- TTM_Excluded_One_Off: 315.00 NIU\n- TTM_Recurring: 12,465.04 NIU\n- Mean YoY growth: 5.49%\n\nNothing failed."
+      },
+      "model": "claude-sonnet-5-5",
+      "turns": 5,
+      "cost_usd": 0.022432,
+      "stop": "success"
+    },
+    {
+      "run": 2,
+      "role": "budget_architect",
+      "result": {
+        "status": "complete",
+        "summary": "Read ADR-0002..0004, then ran Stage 3 (build_rough_budget) and Stage 4 (cut_review_rules). Both completed with no write-scope violations.\n\nStage 3: The workbook has 36 line items. SUBTOTAL-OP rough is 10,260.74 NIU and DIV-R rough is 2,700.53 NIU. Total rough is 12,961.27 NIU. I read the workbook directly. Row 2 shows UNLOCKED and a Cross_Fund_Transfer_NIU of 0. Row 38 has intact SUM/AVERAGE formulas. Executive_Summary has separate SUBTOTAL-OP and DIV-R rows using COUNTIF/SUMIF. I spot-checked the first data row only, not the flag and transfer values on all 36 rows.\n\nStage 4:\n- Locked rows preserved: 7/7, with all_locked_preserved_verbatim true.\n- Unlocked rows recalculated: 29/29, with all_unlocked_recalculated true.\n- Pass 1 final: 12,741.22 NIU.\n- Pass 2 rough: 13,099.26 NIU.\n- Pass 2 final: 12,877.22 NIU, which matches the contract.\n- Net compression delta: -222.04 NIU.\n- data/processed/rerun_preservation_proof.json was written.\n\nBoth completion criteria are met. I did not open the proof file or check the per-row SHA-256 hashes. The 7/7 result comes from the script output. Next: Governance Auditor to run verify_governance."
+      },
+      "model": "claude-sonnet-5-5",
+      "turns": 10,
+      "cost_usd": 0.054962199999999996,
+      "stop": "success"
+    },
+    {
+      "run": 3,
+      "role": "governance_auditor",
+      "result": {
+        "verdict": "approve",
+        "send_back_to": "none",
+        "reasons": "I read ADR-0001 to ADR-0004, then ran run_verify_governance. It returned PASSED. overall_governance_compliant is true, adr_compliance_rate_pct is 100.0, and live_excel_formulas_verified is true. ADR-0001 to ADR-0004 all passed with no violations. ADR-0001 found 4 excluded events totaling 410.00 NIU, 315.00 NIU of it in TTM. ADR-0002 found 6 ring-fenced lines and a cross-fund transfer of 0.0 NIU. ADR-0004 found 7/7 LOCKED rows preserved, confirmed by SHA-256, and 29/29 UNLOCKED rows recalculated. Totals are 13,099.26 NIU rough and 12,877.22 NIU final, a net compression of -222.04 NIU. Operating final is 10,149.29 NIU and reserve final is 2,727.93 NIU. These match the ADR figures. The Stage 3 rough totals in the Architect's hand-off (12,961.27 NIU) are earlier-stage figures and differ from the Pass 2 rough total (13,099.26 NIU). The verifier checked the final workbook, so I did not treat that as a failure."
+      },
+      "model": "claude-sonnet-5-5",
+      "turns": 7,
+      "cost_usd": 0.046731999999999996,
+      "stop": "success"
+    }
+  ],
+  "model": "claude-sonnet-5-5",
+  "total_cost_usd": 0.1241
+}

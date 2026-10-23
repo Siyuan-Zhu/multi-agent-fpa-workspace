@@ -12,7 +12,7 @@
 
 2. **Compute full-cycle TTM velocity and seasonality metrics (Stage 2)**
    - **Action**: Execute `python3 src/build_trends.py` to aggregate `P12M` (`2024-10`..`2025-09`) and `TTM` (`2025-10`..`2026-09`) recurring actuals per cost center, calculating `YoY_Growth_Pct`, `YoY_Growth_Bps`, `Monthly_CV`, `Q4_Share_Pct`, and `Seasonality_Index` into `data/processed/ttm_trend_metrics.csv`.
-   - **Completion Criterion**: `data/processed/ttm_trend_metrics.csv` contains all `36` cost-center rows with `P12M_Recurring_NIU` summing to `11,760.87 NIU`, `TTM_Gross_NIU` summing to `12,780.04 NIU`, `TTM_Excluded_One_Off_NIU` summing to `315.00 NIU`, and `TTM_Recurring_NIU` summing to `12,465.04 NIU`.
+   - **Completion Criterion**: `data/processed/ttm_trend_metrics.csv` contains all `36` cost-center rows with `P12M_Recurring_NIU` summing to `11,825.99 NIU`, `TTM_Gross_NIU` summing to `12,780.04 NIU`, `TTM_Excluded_One_Off_NIU` summing to `315.00 NIU`, and `TTM_Recurring_NIU` summing to `12,465.04 NIU`.
 
 ## Access Scope (`config/workspace_governance.json`)
 

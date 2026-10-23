@@ -1,0 +1,71 @@
+{
+  "workspace_id": "ENT-FPA-FY2027-ROLLING",
+  "reporting_unit": "NIU",
+  "overall_governance_compliant": true,
+  "adr_compliance_rate_pct": 100.0,
+  "live_excel_formulas_verified": true,
+  "formula_samples": {
+    "FY2027_Budget_Model": {
+      "H38": "=SUM(H2:H37)",
+      "I38": "=SUM(I2:I37)",
+      "J38": "=SUM(J2:J37)",
+      "M38": "=SUM(M2:M37)",
+      "O38": "=SUM(O2:O37)",
+      "P38": "=SUM(P2:P37)"
+    },
+    "Executive_Summary": {
+      "D5": "=SUM(D2:D4)",
+      "H5": "=SUM(H2:H4)",
+      "H6": "=SUMIF(FY2027_Budget_Model!B2:B37,\"DIV-R\",FY2027_Budget_Model!O2:O37)",
+      "H7": "=H5+H6"
+    }
+  },
+  "portfolio_metrics_niu": {
+    "p12m_recurring_total_niu": 11825.99,
+    "ttm_gross_total_niu": 12780.04,
+    "ttm_excluded_one_off_niu": 315.0,
+    "ttm_recurring_total_niu": 12465.04,
+    "fy2027_operating_rough_budget_niu": 10370.95,
+    "fy2027_operating_final_budget_niu": 10149.29,
+    "fy2027_reserve_rough_budget_niu": 2728.31,
+    "fy2027_reserve_final_budget_niu": 2727.93,
+    "fy2027_total_rough_budget_niu": 13099.26,
+    "fy2027_total_final_budget_niu": 12877.22,
+    "net_compression_reduction_niu": -222.04
+  },
+  "disposition_breakdown": {
+    "PROTECTED_NO_CUT": 10,
+    "HUMAN_LOCKED_APPROVED": 6,
+    "TIER_1_MAX_CAP_CUT": 4,
+    "TIER_2_MODERATE_CUT": 3,
+    "TIER_3_BASELINE_TRIM": 3,
+    "ROUTED_TO_HEADCOUNT_SCENARIO": 4,
+    "RING_FENCED_NO_SWEEP": 5,
+    "HUMAN_LOCKED_RING_FENCED": 1
+  },
+  "adr_audits": {
+    "ADR-0001": {
+      "passed": true,
+      "excluded_events_count": 4,
+      "total_24m_excluded_niu": 410.0,
+      "ttm_excluded_niu": 315.0
+    },
+    "ADR-0002": {
+      "passed": true,
+      "ring_fenced_lines_count": 6,
+      "cross_fund_transfer_niu": 0.0,
+      "violations": []
+    },
+    "ADR-0003": {
+      "passed": true,
+      "discretionary_cut_ceiling_pct": -12.0,
+      "violations": []
+    },
+    "ADR-0004": {
+      "passed": true,
+      "locked_human_overrides_preserved": "7/7",
+      "unlocked_lines_recalculated": "29/29",
+      "cryptographic_sha256_verified": true
+    }
+  }
+}

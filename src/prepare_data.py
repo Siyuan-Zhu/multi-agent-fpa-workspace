@@ -285,6 +285,7 @@ def validate_and_separate_actuals(
 
     return {
         "total_monthly_records": int(len(raw_df)),
+        "max_reconciliation_residual_niu": round(float(residual), 6),
         "distinct_line_items": int(raw_df["Cost_Center"].nunique()),
         "divisions_count": int(raw_df["Division_ID"].nunique()),
         "excluded_one_off_events": int(len(excluded_df)),
@@ -302,6 +303,26 @@ def run_stage_1(
 ) -> Dict[str, Any]:
     """Execute Stage 1 end-to-end and return summary telemetry."""
     raw_df, overrides_df = generate_raw_datasets(raw_dir=raw_dir)
+    return validate_and_separate_actuals(
+        raw_df=raw_df,
+        overrides_df=overrides_df,
+        processed_dir=processed_dir,
+        config_path=config_path,
+    )
+
+
+def run_stage_1_on_existing_raw(
+    raw_dir: Path = RAW_DIR,
+    processed_dir: Path = PROCESSED_DIR,
+    config_path: Path = CONFIG_PATH,
+) -> Dict[str, Any]:
+    """Run the Stage 1 checks on raw files already on disk, without regenerating them.
+
+    The agent runtime uses this entry point: the coordinator writes the ledger extract once,
+    and the variance analyst only reads `data/raw/`.
+    """
+    raw_df = pd.read_csv(raw_dir / "historical_actuals_24m.csv")
+    overrides_df = pd.read_csv(raw_dir / "human_analyst_overrides.csv")
     return validate_and_separate_actuals(
         raw_df=raw_df,
         overrides_df=overrides_df,

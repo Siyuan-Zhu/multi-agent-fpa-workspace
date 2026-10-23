@@ -1,7 +1,7 @@
 [project]
 name = "multi-agent-fpa-workspace"
 version = "0.1.0"
-description = "Rolling-budget workflow on synthetic data: markdown role contracts, scripted maths, ADRs, human locks that survive re-runs"
+description = "Rolling-budget workflow on synthetic data: three Claude Agent SDK agents, scripted maths, ADRs, human locks that survive re-runs"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 dependencies = [
@@ -10,6 +10,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+agents = ["claude-agent-sdk>=0.2,<0.3"]
 dev = ["pytest>=8,<10", "ruff>=0.6,<1"]
 
 [tool.ruff]
@@ -24,3 +25,4 @@ pythonpath = ["."]
 
 [tool.ruff.lint.per-file-ignores]
 "src/run_all.py" = ["E402"]
+"src/run_agents.py" = ["E402"]

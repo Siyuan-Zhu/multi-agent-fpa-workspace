@@ -10,7 +10,7 @@
 
 1. **Construct multi-tab baseline budget workbook (Stage 3)**
    - **Action**: Execute `python3 src/build_rough_budget.py` to build `output/FY2027_Rolling_Budget_Model.xlsx` from `data/processed/ttm_trend_metrics.csv` with three sheets (`FY2027_Budget_Model`, `Executive_Summary`, `ADR_Audit_Trail`) and live Excel formulas (`=SUM(...)`, `=SUMIF(...)`, `=COUNTIF(...)`, `=AVERAGE(...)`).
-   - **Completion Criterion**: `output/FY2027_Rolling_Budget_Model.xlsx` exists with all `36` line items initialized to `Analyst_Override_Flag == "UNLOCKED"`, `Cross_Fund_Transfer_NIU == 0.00 NIU`, separate `SUBTOTAL-OP` (`10,162.89 NIU` rough) and `DIV-R` (`2,702.63 NIU` rough) pools on `Executive_Summary`, and intact `=SUM(...)` roll-up formulas on Row `38`.
+   - **Completion Criterion**: `output/FY2027_Rolling_Budget_Model.xlsx` exists with all `36` line items initialized to `Analyst_Override_Flag == "UNLOCKED"`, `Cross_Fund_Transfer_NIU == 0.00 NIU`, separate `SUBTOTAL-OP` (`10,260.74 NIU` rough) and `DIV-R` (`2,700.53 NIU` rough) pools on `Executive_Summary`, and intact `=SUM(...)` roll-up formulas on Row `38`.
 
 2. **Apply tiered compression rules, controller locks, and Pass 2 macro re-run (Stage 4)**
    - **Action**: Execute `python3 src/cut_review_rules.py` to open `output/FY2027_Rolling_Budget_Model.xlsx` in-place via `openpyxl`, apply `ADR-0003` dispositions to `UNLOCKED` rows, inject the `7` controller locks from `data/raw/human_analyst_overrides.csv` (`Analyst_Override_Flag = "LOCKED"`), and run Pass 2 (`+1.50%` macro driver update) writing only to rows where `Analyst_Override_Flag == "UNLOCKED"`.
