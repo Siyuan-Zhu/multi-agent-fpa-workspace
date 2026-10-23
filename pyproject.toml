@@ -1,0 +1,26 @@
+[project]
+name = "multi-agent-fpa-workspace"
+version = "0.1.0"
+description = "Rolling-budget workflow on synthetic data: markdown role contracts, scripted maths, ADRs, human locks that survive re-runs"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "pandas>=2.2,<4",
+    "openpyxl>=3.1,<4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.6,<1"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff.lint.per-file-ignores]
+"src/run_all.py" = ["E402"]
